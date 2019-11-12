@@ -18,5 +18,7 @@ services:
     environment:
       - PMA_HOST=mariadb
       - PMA_PORT=3306
+    logging:
+      driver: none
     depends_on:
       - mariadb

@@ -49,12 +49,12 @@ TRUNCATE TABLE `messages`;
 --
 
 INSERT INTO `messages` (`id`, `title`, `msg`, `createdAt`, `updatedAt`) VALUES
-(1, 'Brunch this weekend?', 'I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'Summer BBQ', 'Wish I could come, but I&apos;m out of town this weekend.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 'Brunch this weekend?', 'I`ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Summer BBQ', 'Wish I could come, but I`m out of town this weekend.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'Oui oui', 'Do you have Paris recommendations? Have you ever been?', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 'Birdthday gift', 'Do you have any ideas what we can get Heidi for her birthday? How about a pony?', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (5, 'Recipe to try', 'We should eat this: grated squash. Corn and tomatillo tacos.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'Brendan Lim', 'I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(6, 'Brendan Lim', 'I`ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Індекси збережених таблиць
