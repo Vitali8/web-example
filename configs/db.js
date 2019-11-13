@@ -21,15 +21,15 @@ module.exports = app => {
       }                                     // to avoid a hot loop, and to allow our node script to
     });                                     // process asynchronous requests in the meantime.
 
-    // connection.on('error', function (err) {
-    //   // console.log('db error', err);
-    //   if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-    //     console.log("DB", err.message, "Reconnecting...");
-    //     initConnection();                           // lost due to either server restart, or a
-    //   } else {                                      // connnection idle timeout (the wait_timeout
-    //     throw err;                                  // server variable configures this)
-    //   }
-    // });
+    connection.on('error', function (err) {
+      // console.log('db error', err);
+      if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+        console.log("DB", err.message, "Reconnecting...");
+        initConnection();                           // lost due to either server restart, or a
+      } else {                                      // connnection idle timeout (the wait_timeout
+        throw err;                                  // server variable configures this)
+      }
+    });
     app.set('db', connection);
   }
 
