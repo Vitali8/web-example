@@ -3,7 +3,7 @@ const db_config = {
   host: '127.0.0.1',
   user: 'root',
   password: 'root',
-  database: 'example-db'
+  database: 'library'
 };
 
 module.exports = app => {

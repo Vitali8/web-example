@@ -2,7 +2,7 @@
 // const path = require('path');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('example-db', 'root', 'root', {
+const sequelize = new Sequelize('library', 'root', 'root', {
   host: '127.0.0.1',
   dialect: 'mariadb',
   define: {

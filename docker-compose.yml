@@ -6,7 +6,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_DATABASE=example-db
+      - MYSQL_DATABASE=library-db #example-db
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./docker/mariadb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
