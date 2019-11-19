@@ -1,4 +1,4 @@
-const BookModel = require('../models/book');
+const { book: BookModel } = require('../models');
 
 const getData = async (req, res, next) => {
   req.app.get('db').query('SELECT * FROM books LIMIT 100', function (err, rows) {
@@ -18,22 +18,41 @@ const getDataS = async (req, res, next) => {
     .send(result);
 };
 
-const getBook = (req, res, next) => {
+const getBook = async (req, res, next) => {
   console.log(req.user, req.params);
-  // res.send('test');
 
-  const result = BookModel.findOne({
+  const result = await BookModel.findOne({
     where: { id: req.params.bookId },
     attributes: ['name', 'publicationDate']
-  }).then(result => {
-    res
-      .status(200)
-      .send(result);
   });
+  res
+    .status(200)
+    .send(result);
+};
+
+const postBook = async (req, res, next) => {
+  const result = await BookModel.build(req.query).save();
+
+  res
+    .status(200)
+    .send(result.dataValues);
+};
+
+const putBook = async (req, res, next) => {
+  const book = await BookModel.findByPk(req.params.bookId);
+
+  const { query } = req;
+  book.update(query);
+
+  res
+    .status(200)
+    .send(book);
 };
 
 module.exports = {
   getData,
   getDataS,
-  getBook
+  getBook,
+  postBook,
+  putBook
 };
