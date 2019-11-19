@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
-const sequelize = require('./index');
+// const sequelize = require('./index');s
 
-module.exports = sequelize.import('book', function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('book', {
     id: {
       type: DataTypes.INTEGER(11),
@@ -40,8 +40,8 @@ module.exports = sequelize.import('book', function(sequelize, DataTypes) {
     return result.map(item => item.get());
   };
 
-  Book.getItemById = (id, attributes) => {
-    return Book.findByPk(id)/* {
+  Book.getItemById = async (id, attributes) => {
+    return await Book.findByPk(id)/* {
       where: {id},
       attributes,
       include: [
@@ -54,4 +54,4 @@ module.exports = sequelize.import('book', function(sequelize, DataTypes) {
   };
 
   return Book;
-});
+};

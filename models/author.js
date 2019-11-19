@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
-const sequelize = require('./index');
+// const sequelize = require('./index');
 
-module.exports = sequelize.import('author', function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Author = sequelize.define('author', {
     id: {
       type: DataTypes.INTEGER(11),
@@ -35,18 +35,20 @@ module.exports = sequelize.import('author', function(sequelize, DataTypes) {
     return result.map(item => item.get());
   };
 
-  Author.getItemById = (id, attributes) => {
-    return Author.findOne({
-      where: {id},
-      attributes,
-      include: [
-        {
-          model: sequelize.models.userGroup,
-          attributes: ['surname', 'name', 'patronymic'],
-        },
-      ],
-    });
-  };
+  Author.getItemById = async (id) => (await Author.findByPk(id));
+
+  // Author.getItemById = async (id, attributes) => {
+  //   return await Author.findOne({
+  //     where: {id},
+  //     attributes,
+  //     include: [
+  //       {
+  //         model: sequelize.models.userGroup,
+  //         attributes: ['surname', 'name', 'patronymic'],
+  //       },
+  //     ],
+  //   });
+  // };
 
   return Author;
-});
+};
