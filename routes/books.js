@@ -1,10 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 
-const booksController = require('../controllers/books');
+const { getData, getDataS } = require('../controllers/books');
 
-router.get('/', booksController.getData);
-router.get('/:bookId', booksController.getBook);
-router.get('/sequelize', booksController.getDataS);
+router.get('/', getData);
+router.get('/sequelize', getDataS);
 
 module.exports = router;

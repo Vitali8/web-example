@@ -1,13 +1,13 @@
 const appRoute = require('./app');
-const usersRoute = require('./users');
+const bookRoute = require('./book');
 const booksRoute = require('./books');
+const authorRoute = require('./author');
 const authorsRoute = require('./authors');
-const messagesRoute = require('./messages');
 
 module.exports = app => {
   app.use('/', appRoute);
+  app.use('/book', bookRoute);
   app.use('/books', booksRoute);
-  app.use('/users', usersRoute);
+  app.use('/author', authorRoute);
   app.use('/authors', authorsRoute);
-  app.use('/messages', messagesRoute);
 };
